@@ -20,7 +20,7 @@
             if (strlen($template_logo) == 0) {
                 $template_logo = THEME_URI . '/images/logo/logo.png';
             }
-            $sizes = getimagesize($template_logo);
+            $sizes = exif_imagetype($template_logo);
             $attr = '';
             if(isset($sizes[3])){
                 $attr = $sizes[3];
