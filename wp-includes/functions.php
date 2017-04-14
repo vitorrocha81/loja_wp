@@ -2367,7 +2367,7 @@ function wp_get_image_mime( $file ) {
 		if ( is_callable( 'exif_imagetype' ) ) {
 			$mime = image_type_to_mime_type( exif_imagetype( $file ) );
 		} elseif ( function_exists( 'getimagesize' ) ) {
-			$imagesize = getimagesize( $file );
+			$imagesize = exif_imagetype( $file );
 			$mime = ( isset( $imagesize['mime'] ) ) ? $imagesize['mime'] : false;
 		} else {
 			$mime = false;
